@@ -5,6 +5,7 @@
 
     <display-name>Encrypting example</display-name>
 
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -15,6 +16,7 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
 
     <!-- Provides core MVC application controller. -->
     <servlet>
@@ -29,8 +31,7 @@
 
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
 
 </web-app>

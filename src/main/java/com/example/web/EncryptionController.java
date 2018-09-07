@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class EncryptionController {
 
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index2(Model model){
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(Model model){
 
-        String hello = "Java crypto Thymeleaf example!";
+        String hello = "Hello!";
 
         model.addAttribute("someString", hello);
         return "index.html";
     }
+
+
+
 
 }
