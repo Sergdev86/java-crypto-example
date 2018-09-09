@@ -22,6 +22,7 @@ public class AESEncryptionService {
         //  Returns hex-encoded string
         String salt = KeyGenerators.string().generateKey();
 
+        //text encriptor initialization
         encryptor = Encryptors.text(password, salt);
 
         //  encripting text data and returns hex-encoded strings

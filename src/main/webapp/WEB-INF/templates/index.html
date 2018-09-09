@@ -3,9 +3,64 @@
 <head>
     <title>Java/Thymeleaf example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 </head>
-<body>
-<h3>In templates</h3>
-<p th:text="${someString}"/>
+
+<br>
+<div>
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" id="encryptionId" placeholder="put your word for encryption">
+        </div>
+        <button id="encryptButton" name="encryptButton" class="btn btn-primary mb-2" onclick="encryptTheMessage()" type="button">Encrypt</button>
+
+    </form><br>
+
+    <div id="encryptionResults"></div></br>
+
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" id="decryptionId" placeholder="put cipher for decryption">
+        </div>
+        <button class="btn btn-primary mb-2" onclick="decryptTheMessage()" type="button">Decrypt</button>
+
+    </form><br>
+
+    <div id="decryptionResults"></div>
+
+</div>
+
+
+<script type="text/javascript">
+
+
+    function encryptTheMessage(){
+
+        var url = '/toencrypt';
+
+        if ($('#encryptionId').val() != '') {
+            url = url + '/' + $('#encryptionId').val();
+        }
+
+        $("#encryptionResults").load(url);
+    }
+
+
+    function decryptTheMessage(){
+
+        var url = '/todecrypt';
+
+        if ($('#decryptionId').val() != '') {
+            url = url + '/' + $('#decryptionId').val();
+        }
+
+        $("#decryptionResults").load(url);
+    }
+</script>
+
 </body>
 </html>
